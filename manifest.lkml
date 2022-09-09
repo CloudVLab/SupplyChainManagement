@@ -1,5 +1,5 @@
 constant: PROJECT {
-  value: "scl-demo-shared"
+  value: "supply_chain_management"
   export: override_optional
 }
 
