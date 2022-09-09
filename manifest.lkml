@@ -5,7 +5,7 @@ constant: PROJECT {
 
 
 constant: CONNECTION {
-  value: "scl-demo-shared"
+  value: "bigquery_public_data_looker"
   export: override_optional
 }
 
