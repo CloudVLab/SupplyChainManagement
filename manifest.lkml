@@ -13,3 +13,8 @@ constant: inventory_VISIBILITY {
   value: "scl_ambassador_program_demo"
   export: override_optional
 }
+
+constant: DATASET {
+  value: "cloud-training-demos.scl_ambassador_program_demo"
+  export: override_required
+}
