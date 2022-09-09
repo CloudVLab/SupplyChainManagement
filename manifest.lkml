@@ -1,5 +1,5 @@
 constant: PROJECT {
-  value: "supply_chain_management"
+  value: "cloud-training-demos"
   export: override_optional
 }
 
@@ -9,11 +9,11 @@ constant: CONNECTION {
 }
 
 constant: inventory_VISIBILITY {
-  value: "cloud-training-demos.scl_ambassador_program_demo"
+  value: "scl_ambassador_program_demo"
   export: override_optional
 }
 
 constant: DATASET {
-  value: "cloud-training-demos.scl_ambassador_program_demo"
+  value: "scl_ambassador_program_demo"
   export: override_required
 }
