@@ -1,7 +1,7 @@
 connection: "@{CONNECTION}"
 
 # include all the views and dashboards
-# include: "/dashboard/*"
+include: "/dashboard/*"
 include: "/views/*"
 
 
