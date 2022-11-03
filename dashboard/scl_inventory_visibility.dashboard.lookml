@@ -1,19 +1,34 @@
-- dashboard: scl_inventory_visibility
+- dashboard: sc_twin__inventory_visibility_
   title: 'SC Twin - Inventory Visibility '
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
+  preferred_slug: DoV9kU8NpPLBWze1CB1Z4Q
   elements:
   - title: Inventory Status
     name: Inventory Status
     model: inventory_visibility_$$
     explore: forecast
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [order.total_requested_quantity, forecast.total_forecast_quantity, forecast.projected_inventory]
-    filters:
-      order.order_category: purchase order
-      order.status: open
+    type: single_value
+    fields: [forecast.total_forecast_quantity]
     limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#E52592"
+    single_value_title: Projected Sales
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: []}]
     hidden_fields: []
     hidden_points_if_no: []
     series_labels: {}
@@ -79,18 +94,9 @@
       forecast.total_forecast_quantity: {}
     table_theme: unstyled
     limit_displayed_rows: false
-    enable_conditional_formatting: false
     header_text_alignment: left
     header_font_size: '12'
     rows_font_size: '12'
-    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
-        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
-          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
-              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
-            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
-        strikethrough: false, fields: [order.total_requested_quantity]}]
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     x_axis_gridlines: false
     y_axis_gridlines: true
     y_axes: [{label: '', orientation: left, series: [{axisId: forecast.total_inventory_quantity,
@@ -126,7 +132,7 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    defaults_version: 0
+    defaults_version: 1
     hide_totals: false
     hide_row_totals: false
     title_hidden: true
@@ -136,8 +142,8 @@
       Product Description: product.product_description
       Product Category: product.product_type
     row: 0
-    col: 0
-    width: 19
+    col: 6
+    width: 6
     height: 5
   - title: Valuation
     name: Valuation
@@ -164,8 +170,8 @@
       Product Description: product.product_description
       Product Category: product.product_type
     row: 0
-    col: 19
-    width: 5
+    col: 18
+    width: 6
     height: 5
   - title: Inventory Status graph
     name: Inventory Status graph
@@ -601,6 +607,286 @@
     col: 12
     width: 12
     height: 10
+  - title: Inventory Status (Copy)
+    name: Inventory Status (Copy)
+    model: inventory_visibility_$$
+    explore: forecast
+    type: single_value
+    fields: [order.total_requested_quantity]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#12B5CB"
+    single_value_title: Incoming Arrivals
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: [order.total_requested_quantity]}]
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '12'
+    orientation: horizontal
+    dividers: true
+    style_forecast.total_inventory_quantity: "#1A73E8"
+    show_title_forecast.total_inventory_quantity: true
+    title_placement_forecast.total_inventory_quantity: below
+    value_format_forecast.total_inventory_quantity: ''
+    style_order.total_requested_quantity: "#12B5CB"
+    show_title_order.total_requested_quantity: true
+    title_placement_order.total_requested_quantity: below
+    value_format_order.total_requested_quantity: ''
+    show_comparison_order.total_requested_quantity: false
+    style_forecast.total_forecast_quantity: "#E52592"
+    show_title_forecast.total_forecast_quantity: true
+    title_placement_forecast.total_forecast_quantity: below
+    value_format_forecast.total_forecast_quantity: ''
+    show_comparison_forecast.total_forecast_quantity: false
+    style_forecast.projected_inventory: "#E8710A"
+    show_title_forecast.projected_inventory: true
+    title_placement_forecast.projected_inventory: below
+    value_format_forecast.projected_inventory: ''
+    show_comparison_forecast.projected_inventory: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    truncate_header: false
+    size_to_fit: true
+    series_cell_visualizations:
+      forecast.total_inventory_quantity:
+        is_active: true
+      order.total_requested_quantity:
+        is_active: true
+        palette:
+          palette_id: 6086e5c9-c25f-9ef6-aba9-2a12fab8db26
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#12B5CB"
+          - "#1a73e8"
+      forecast.total_forecast_quantity:
+        is_active: true
+        palette:
+          palette_id: 741fcf53-ba41-e8bb-5b72-d52a810e90c0
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#E52592"
+          - "#e81782"
+      forecast.projected_inventory:
+        is_active: true
+        palette:
+          palette_id: 6dee4a77-bd4e-0015-cd01-4c3ba39449a7
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#E8710A"
+          - "#e88614"
+    series_text_format:
+      forecast.total_forecast_quantity: {}
+    table_theme: unstyled
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    y_axes: [{label: '', orientation: left, series: [{axisId: forecast.total_inventory_quantity,
+            id: forecast.total_inventory_quantity, name: Current On Hand}, {axisId: order.total_requested_quantity,
+            id: order.total_requested_quantity, name: Incoming Arrivals}, {axisId: forecast.total_forecast_quantity,
+            id: forecast.total_forecast_quantity, name: Projected Sales}, {axisId: forecast.projected_inventory,
+            id: forecast.projected_inventory, name: Projected Inventory}], showLabels: false,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    font_size: 1em
+    series_types: {}
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: ordinal
+    y_axis_combined: true
+    trend_lines: []
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hide_totals: false
+    hide_row_totals: false
+    title_hidden: true
+    listen:
+      Date: forecast.forecast_date
+      Location: location.city
+      Product Description: product.product_description
+      Product Category: product.product_type
+    row: 0
+    col: 0
+    width: 6
+    height: 5
+  - title: Inventory Status (Copy 2)
+    name: Inventory Status (Copy 2)
+    model: inventory_visibility_$$
+    explore: forecast
+    type: single_value
+    fields: [forecast.projected_inventory]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#E8710A"
+    single_value_title: Projected Inventory
+    conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#1A73E8",
+        font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
+          palette_id: 4a00499b-c0fe-4b15-a304-4083c07ff4c4, options: {constraints: {
+              min: {type: minimum}, mid: {type: number, value: 0}, max: {type: maximum}},
+            mirror: true, reverse: false, stepped: false}}, bold: false, italic: false,
+        strikethrough: false, fields: []}]
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '12'
+    orientation: horizontal
+    dividers: true
+    style_forecast.total_inventory_quantity: "#1A73E8"
+    show_title_forecast.total_inventory_quantity: true
+    title_placement_forecast.total_inventory_quantity: below
+    value_format_forecast.total_inventory_quantity: ''
+    style_order.total_requested_quantity: "#12B5CB"
+    show_title_order.total_requested_quantity: true
+    title_placement_order.total_requested_quantity: below
+    value_format_order.total_requested_quantity: ''
+    show_comparison_order.total_requested_quantity: false
+    style_forecast.total_forecast_quantity: "#E52592"
+    show_title_forecast.total_forecast_quantity: true
+    title_placement_forecast.total_forecast_quantity: below
+    value_format_forecast.total_forecast_quantity: ''
+    show_comparison_forecast.total_forecast_quantity: false
+    style_forecast.projected_inventory: "#E8710A"
+    show_title_forecast.projected_inventory: true
+    title_placement_forecast.projected_inventory: below
+    value_format_forecast.projected_inventory: ''
+    show_comparison_forecast.projected_inventory: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    truncate_header: false
+    size_to_fit: true
+    series_cell_visualizations:
+      forecast.total_inventory_quantity:
+        is_active: true
+      order.total_requested_quantity:
+        is_active: true
+        palette:
+          palette_id: 6086e5c9-c25f-9ef6-aba9-2a12fab8db26
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#12B5CB"
+          - "#1a73e8"
+      forecast.total_forecast_quantity:
+        is_active: true
+        palette:
+          palette_id: 741fcf53-ba41-e8bb-5b72-d52a810e90c0
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#E52592"
+          - "#e81782"
+      forecast.projected_inventory:
+        is_active: true
+        palette:
+          palette_id: 6dee4a77-bd4e-0015-cd01-4c3ba39449a7
+          collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
+          custom_colors:
+          - "#E8710A"
+          - "#e88614"
+    series_text_format:
+      forecast.total_forecast_quantity: {}
+    table_theme: unstyled
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    y_axes: [{label: '', orientation: left, series: [{axisId: forecast.total_inventory_quantity,
+            id: forecast.total_inventory_quantity, name: Current On Hand}, {axisId: order.total_requested_quantity,
+            id: order.total_requested_quantity, name: Incoming Arrivals}, {axisId: forecast.total_forecast_quantity,
+            id: forecast.total_forecast_quantity, name: Projected Sales}, {axisId: forecast.projected_inventory,
+            id: forecast.projected_inventory, name: Projected Inventory}], showLabels: false,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    font_size: 1em
+    series_types: {}
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: ordinal
+    y_axis_combined: true
+    trend_lines: []
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hide_totals: false
+    hide_row_totals: false
+    title_hidden: true
+    listen:
+      Date: forecast.forecast_date
+      Location: location.city
+      Product Description: product.product_description
+      Product Category: product.product_type
+    row: 0
+    col: 12
+    width: 6
+    height: 5
   filters:
   - name: Date
     title: Date
