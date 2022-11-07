@@ -8,4 +8,3 @@ Step 1: Create New Project & Manifest File
 Step 2: Create Views (7 of them)
 Step 3: Create LookML Model
 Step 4: Create Dashboard
-
